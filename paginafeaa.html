@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Oficial 2010 Pro Max Ultra</title>
+  
+  <style>
+    @keyframes rainbowBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounceVertical {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-70px); }
+    }
+
+    @keyframes bounceHorizontal {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(90px); }
+    }
+
+    @keyframes floatDiagonal {
+      0% { transform: translate(0px, 0px) rotate(0deg); }
+      50% { transform: translate(110px, -80px) rotate(18deg); }
+      100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-25deg); }
+      50% { transform: rotate(25deg); }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+      background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd1de8);
+      background-size: 1800% 1800%;
+      animation: rainbowBG 6s ease infinite;
+      color: #000;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Background Rick Astley GIF */
+    .rick-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.70;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+
+    /* Main Container Above GIFs */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 780px;
+      margin: 20px auto;
+      background: rgba(255, 255, 0, 0.94);
+      border: 8px ridge #ff00ff;
+      padding: 25px;
+      box-shadow: 10px 10px 0px #000;
+    }
+
+    marquee {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00ff00;
+      background-color: #000;
+      padding: 6px;
+      border: 3px dashed #ff0000;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff0000;
+      text-shadow: 3px 3px 0px #00ffff;
+      font-size: 32px;
+      margin-top: 15px;
+    }
+
+    .form-group {
+      background: rgba(255, 255, 255, 0.95);
+      border: 4px dotted #0000ff;
+      margin: 20px 0;
+      padding: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #d00000;
+    }
+
+    .select-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    select {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 16px;
+      padding: 4px;
+      border: 3px double #ff00ff;
+      background: #ffff99;
+      cursor: pointer;
+    }
+
+    .slider-box {
+      margin: 15px 0;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      cursor: pointer;
+      accent-color: #ff0055;
+    }
+
+    .floating-gif {
+      position: fixed;
+      z-index: 5;
+      border: 4px solid #000;
+      box-shadow: 6px 6px 0px #000;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    /* Distributed positions and giant sizes */
+    .gif-1 { top: 2%; left: 1%; width: 170px; height: 170px; animation: bounceVertical 4s ease-in-out infinite; }
+    .gif-2 { top: 25%; left: 2%; width: 180px; height: 180px; animation: pulse 2.5s infinite; }
+    .gif-3 { top: 55%; left: 1.5%; width: 160px; height: 160px; animation: sway 3s ease-in-out infinite; }
+    .gif-4 { bottom: 2%; left: 3%; width: 200px; height: 180px; animation: floatDiagonal 7s ease-in-out infinite; }
+    
+    .gif-5 { top: 3%; right: 2%; width: 190px; height: 190px; animation: spin 8s linear infinite; }
+    .gif-6 { top: 28%; right: 1%; width: 170px; height: 170px; animation: bounceHorizontal 5s ease-in-out infinite; }
+    .gif-7 { top: 58%; right: 3%; width: 160px; height: 160px; animation: pulse 1.8s infinite; }
+    .gif-8 { bottom: 2%; right: 2%; width: 210px; height: 210px; animation: bounceVertical 3.5s ease-in-out infinite; }
+    
+    .gif-9 { top: 8%; left: 30%; width: 150px; height: 150px; animation: floatDiagonal 6s ease-in-out infinite; }
+    .gif-10 { bottom: 10%; right: 28%; width: 180px; height: 180px; animation: sway 2.5s ease-in-out infinite; }
+    .gif-11 { top: 46%; left: 16%; width: 160px; height: 160px; animation: pulse 2s infinite; }
+
+    .btn-container {
+      position: relative;
+      height: 80px;
+      margin-top: 30px;
+    }
+
+    #submitBtn {
+      position: absolute;
+      left: 35%;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: "Comic Sans MS", cursive;
+      background: #00ff00;
+      color: #000;
+      border: 5px outset #ffffff;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px #000;
+      transition: transform 0.1s ease;
+    }
+
+    .retro-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      width: 320px;
+      background: #c0c0c0;
+      border: 3px outset #ffffff;
+      box-shadow: 6px 6px 0px #000;
+      font-family: "Tahoma", sans-serif;
+    }
+
+    .retro-titlebar {
+      background: darkblue;
+      color: white;
+      font-weight: bold;
+      padding: 4px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .retro-body {
+      padding: 20px;
+      text-align: center;
+      color: #000;
+      font-size: 14px;
+    }
+
+    .retro-btn {
+      margin-top: 15px;
+      padding: 5px 20px;
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="rick-bg" src="https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif" alt="Rick Astley">
+
+  <img class="floating-gif gif-1" src="https://i.makeagif.com/media/1-05-2017/5J-Wno.gif" alt="GIF 1">
+  <img class="floating-gif gif-2" src="https://gifdb.com/images/high/reaction-meme-stan-twitter-gif-u4nebjgmyftpmz58.webp" alt="GIF 2">
+  <img class="floating-gif gif-3" src="https://media1.tenor.com/m/H_aFoZ6EmTwAAAAC/huh.gif" alt="GIF 3">
+  <img class="floating-gif gif-4" src="https://media1.tenor.com/m/LFfqCoWJJ-UAAAAd/guy-puts-arm-around-girl-at-lunch-table-butterflies-stan-twitter.gif" alt="GIF 4">
+  <img class="floating-gif gif-5" src="https://media.tenor.com/mFRFJqRvhioAAAA1/on-my-way-driving.webp" alt="GIF 5">
+  <img class="floating-gif gif-6" src="https://media1.tenor.com/m/ZuCOwE51ZWAAAAAd/speed-messi.gif" alt="GIF 6">
+  <img class="floating-gif gif-7" src="https://media1.tenor.com/m/oXhNEv0n3tIAAAAd/kk.gif" alt="GIF 7">
+  <img class="floating-gif gif-8" src="https://reactiongifs.com/r/chloe.gif" alt="GIF 8">
+  <img class="floating-gif gif-9" src="https://media1.tenor.com/m/CowGNQSUsOYAAAAC/confused-math.gif" alt="GIF 9">
+  <img class="floating-gif gif-10" src="https://media1.tenor.com/m/V_NIdAgqilwAAAAd/surprised-wow.gif" alt="GIF 10">
+  <img class="floating-gif gif-11" src="https://media.tenor.com/9R0K2uUIBo0AAAAj/memes-meme.gif" alt="GIF 11">
+
+  <div class="container">
+    <marquee behavior="scroll" direction="left">🔥🔥 ¡BIENVENIDO AL FORMULARIO MÁS MODERNO Y RÁPIDO DE LA WEB 2.0! POR FAVOR INGRESA TUS DATOS CON CUIDADO 🔥🔥</marquee>
+    
+    <h1>📋 Registro Oficial de Usuario 📋</h1>
+
+    <form id="horribleForm">
+      
+      <div class="form-group">
+        <label>1. Nombre Completo (Selecciona letra por letra):</label>
+        <div class="select-grid" id="nameContainer"></div>
+      </div>
+
+      <div class="form-group">
+        <label>2. Número de Teléfono (Selecciona número por número):</label>
+        <div class="select-grid" id="phoneContainer"></div>
+      </div>
+
+      <div class="form-group">
+        <label>3. Fecha de Nacimiento (Adivina la posición exacta):</label>
+        
+        <div class="slider-box">
+          <label style="font-size: 14px; color: #555;">Día (Mueve la barra a ciegas):</label>
+          <input type="range" min="1" max="31" value="15">
+        </div>
+
+        <div class="slider-box">
+          <label style="font-size: 14px; color: #555;">Mes (Mueve la barra a ciegas):</label>
+          <input type="range" min="1" max="12" value="6">
+        </div>
+
+        <div class="slider-box">
+          <label style="font-size: 14px; color: #555;">Año (Mueve la barra a ciegas):</label>
+          <input type="range" min="1900" max="2026" value="1960">
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button type="button" id="submitBtn">ENVIAR FORMULARIO</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="retro-modal" id="retroModal">
+    <div class="retro-titlebar">
+      <span>Error del Sistema 0x80004005</span>
+      <span style="cursor:pointer;" onclick="closeModal()">✕</span>
+    </div>
+    <div class="retro-body">
+      <p style="font-size: 24px; margin: 0 0 10px 0;">❌</p>
+      <b>¡ERROR FATAL DETECTADO!</b>
+      <p>El nombre ingresado es INCORRECTO.</p>
+      <p style="font-size: 11px; color: #555;">Se han restablecido todos los campos por seguridad.</p>
+      <button class="retro-btn" onclick="closeModal()">Aceptar</button>
+    </div>
+  </div>
+
+  <script>
+    const nameContainer = document.getElementById('nameContainer');
+    const alphabet = [' ', ...'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'].map(l => l === ' ' ? '[Espacio]' : l);
+    
+    // Create 10 dropdowns for full name letters
+    for (let i = 0; i < 10; i++) {
+      const select = document.createElement('select');
+      alphabet.forEach(letter => {
+        const opt = document.createElement('option');
+        opt.value = letter;
+        opt.textContent = letter;
+        select.appendChild(opt);
+      });
+      select.addEventListener('change', triggerError);
+      nameContainer.appendChild(select);
+    }
+
+    // Create 11 dropdowns for phone digits
+    const phoneContainer = document.getElementById('phoneContainer');
+    for (let i = 0; i < 11; i++) {
+      const select = document.createElement('select');
+      for (let d = 0; d <= 9; d++) {
+        const opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = d;
+        select.appendChild(opt);
+      }
+      phoneContainer.appendChild(select);
+    }
+
+    function triggerError() {
+      setTimeout(() => {
+        document.getElementById('retroModal').style.display = 'block';
+        document.getElementById('horribleForm').reset();
+      }, 300);
+    }
+
+    function closeModal() {
+      document.getElementById('retroModal').style.display = 'none';
+    }
+
+    // Evasive button behavior
+    const btn = document.getElementById('submitBtn');
+    btn.addEventListener('mouseover', () => {
+      const x = Math.floor(Math.random() * 300) - 150;
+      const y = Math.floor(Math.random() * 200) - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    btn.addEventListener('click', () => {
+      triggerError();
+      btn.style.transform = 'translate(0px, 0px)';
+    });
+  </script>
+</body>
+</html>
